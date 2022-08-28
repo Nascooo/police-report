@@ -91,10 +91,10 @@
 
     <h:form id="form" enctype="multipart/form-data" style="margin:auto;width: 220px;">
         <p>
-            <h:inputFile id="file" value="#{fileUploadView.file}">
-                <f:ajax listener="#{fileUploadController.upload(fileUploadView.file)}" />
-            </h:inputFile>
+            <h:inputFile id="file" value="#{fileUploadView.file}"/>
         </p>
+        <h:commandButton action="#{fileUploadController.upload(fileUploadView.file)}"
+                         value="Upload"></h:commandButton>
         <br/>
     </h:form>
     <br/>
