@@ -1,7 +1,7 @@
 package org.police.report.model;
 
+import org.primefaces.model.UploadedFile;
 import org.springframework.stereotype.Component;
-import org.springframework.web.multipart.MultipartFile;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -15,7 +15,6 @@ public class ReportModel {
     private String title;
     private String details;
 
-    private MultipartFile multipartFile;
 
     public ReportModel() {
     }
@@ -48,13 +47,5 @@ public class ReportModel {
 
     public void setDetails(String details) {
         this.details = details;
-    }
-
-    public MultipartFile getMultipartFile() {
-        return multipartFile;
-    }
-
-    public void setMultipartFile(MultipartFile multipartFile) {
-        this.multipartFile = multipartFile;
     }
 }

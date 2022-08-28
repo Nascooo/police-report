@@ -2,6 +2,7 @@
 <html lang="en"
       xmlns="http://www.w3.org/1999/xhtml"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="https://primefaces.org/ui"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
 <h:head>
     <title>Report Details</title>
@@ -38,8 +39,10 @@
                          label="Report Details"/>
         <br/>
         <br/>
-        <h:commandButton value="Save" action="#{reportController.addReport(reportModel)}"/>
-        <h:commandButton value="reset" action="#{reportController.reset(reportModel)}"/>
+        <h:commandButton value="Save" styleClass="btn btn-outline-primary mr-1 btn-space"
+                         action="#{reportController.addReport(reportModel)}"/>
+        <h:commandButton value="reset" styleClass="btn btn-outline-secondary"
+                         action="#{reportController.reset(reportModel)}"/>
     </h:form>
     <br/>
     <br/>
@@ -83,6 +86,40 @@
             </h:column>
         </h:dataTable>
     </h:form>
+    <br/>
+    <br/>
+
+    <h:form id="form" enctype="multipart/form-data" style="margin:auto;width: 220px;">
+        <p>
+            <h:inputFile id="file" value="#{fileUploadView.file}">
+                <f:ajax listener="#{fileUploadController.upload(fileUploadView.file)}" />
+            </h:inputFile>
+        </p>
+        <br/>
+    </h:form>
+    <br/>
+    <h:form>
+        <center>
+            <h2>
+                <h:outputText value="Uploaded Files"/>
+            </h2>
+        </center>
+        <h:dataTable value="#{fileUploadController.getUploadedFiles()}" var="tempModel"
+                     class="table table-striped table-hover table-bordered">
+
+            <h:column>
+                <f:facet name="header">File ID</f:facet>
+                #{tempModel.fileId}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">File Name</f:facet>
+                #{tempModel.fileName}
+            </h:column>
+        </h:dataTable>
+    </h:form>
+    <br/>
+    <br/>
 
 </h:body>
 </html>

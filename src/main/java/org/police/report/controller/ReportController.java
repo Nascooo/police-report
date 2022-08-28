@@ -2,6 +2,8 @@ package org.police.report.controller;
 
 import org.police.report.model.ReportModel;
 import org.police.report.service.ReportService;
+import org.primefaces.event.FileUploadEvent;
+import org.primefaces.model.UploadedFile;
 import org.springframework.stereotype.Controller;
 
 import javax.faces.bean.ManagedBean;
@@ -40,5 +42,12 @@ public class ReportController {
 
     public void reset(ReportModel reportModel) {
         reportModel.reset();
+    }
+
+    public void fileUploadListener(FileUploadEvent e){
+        // Get uploaded file from the FileUploadEvent
+        UploadedFile file = e.getFile();
+        // Print out the information of the file
+        System.out.println("Uploaded File Name Is :: "+file.getFileName()+" :: Uploaded File Size :: "+file.getSize());
     }
 }
