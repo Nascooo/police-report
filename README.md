@@ -6,7 +6,7 @@
 - Bootstrap v4.6.1
 - H2 Database
 
-## to start :  mvn clean install -DskipTests to generate mappers
+## to start :  mvn clean install to generate mappers
 ## run localhost:8080
 
 
